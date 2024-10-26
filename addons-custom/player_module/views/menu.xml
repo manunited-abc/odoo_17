@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="player_menu" name="Player" groups="base.group_user"/>
+    <menuitem id="player_menu_1" name="Player" parent="player_menu" action="player_action" groups="base.group_user"/>
+</odoo>
