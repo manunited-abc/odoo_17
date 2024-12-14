@@ -1,0 +1,53 @@
+<odoo>
+    <!-- Tree View cho danh sách khách hàng trong module marketing -->
+    <record id="view_marketing_customer_tree" model="ir.ui.view">
+        <field name="name">marketing.customer.tree</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="email"/>
+                <field name="phone"/>
+                <field name="x_user_social_id"/>
+                <field name="x_count_send"/>
+                <field name="x_last_interaction_date"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View cho chi tiết khách hàng trong module marketing -->
+    <record id="view_marketing_customer_form" model="ir.ui.view">
+        <field name="name">marketing.customer.form</field>
+        <field name="model">res.partner</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="email"/>
+                        <field name="phone"/>
+                        <field name="street"/>
+                        <field name="city"/>
+                        <field name="country_id"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- Action để mở các view khách hàng trong module marketing -->
+    <record id="action_marketing_customer" model="ir.actions.act_window">
+        <field name="name">Marketing Customers</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="view_marketing_customer_tree"/>
+        <field name="domain">[('customer_rank', '>', 0),('x_source', '=', 'zalo')]
+        </field> <!-- Chỉ khách hàng có trong CRM -->
+    </record>
+    <menuitem id="menu_mk_customer"
+              name="Liên kết mạng xã hội"
+              action="action_marketing_customer"
+    />
+    <menuitem id="menu_mk_config" name="Cấu hình"
+              parent="menu_mk_customer"/>
+</odoo>

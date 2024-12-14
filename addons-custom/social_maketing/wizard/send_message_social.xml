@@ -1,0 +1,33 @@
+<odoo>
+    <record id="send_message_social_wiz_form_view" model="ir.ui.view">
+        <field name="name">send_message_social.form</field>
+        <field name="model">send.message.social</field>
+        <field name="arch" type="xml">
+            <form>
+                <group>
+                    <field name="use_template"/>
+                    <field name="message_template_id" invisible="(not use_template)"/>
+                    <field name="content" invisible="(use_template)"/>
+                    <field name="content_html" invisible="(not use_template)"/>
+                </group>
+                <footer>
+                    <button string="Send" type="object" name="send_zalo_message" class="btn-primary"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+
+    <record id="send_message_social_wiz_action" model="ir.actions.act_window">
+        <field name="name">Gửi tin nhắn Zalo</field>
+        <field name="res_model">send.message.social</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+        <field name="binding_model_id" ref="base.model_res_partner"/>
+        <field name="binding_view_types">list,form</field>
+
+    </record>
+
+
+</odoo>

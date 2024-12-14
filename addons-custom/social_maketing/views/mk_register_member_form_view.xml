@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="registration_form_template" name="Registration Form">
+        <!-- Gọi layout không có header và footer -->
+        <t t-call="social_maketing.no_header_no_footer_layout">
+            <div class="container mt-5">
+                <h2 class="text-center">Đăng ký thành viên</h2>
+                <form action="/register/submit" method="post" class="mt-4">
+                    <!-- Trường Tên -->
+                    <input type="hidden"  t-att-value="user_id" id="user_id" name="user_id"/>
+                    <div class="form-group">
+                        <label for="name">Họ và Tên</label>
+                        <input type="text" id="name" name="name" class="form-control" required="true"/>
+                    </div>
+
+                    <!-- Trường Số Điện Thoại -->
+                    <div class="form-group mt-3">
+                        <label for="phone">Số Điện Thoại</label>
+                        <input type="text" id="phone" name="phone" class="form-control" required="true"/>
+                    </div>
+
+                    <!-- Trường Email -->
+                    <div class="form-group mt-3">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" class="form-control"/>
+                    </div>
+
+                    <!-- Nút Gửi -->
+                    <button type="submit" class="btn btn-primary mt-4">Đăng Ký</button>
+                </form>
+            </div>
+        </t>
+    </template>
+</odoo>

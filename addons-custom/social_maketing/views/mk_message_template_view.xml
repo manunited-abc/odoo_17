@@ -1,0 +1,54 @@
+<odoo>
+    <record id="mk_message_template_tree_view" model="ir.ui.view">
+        <field name="name">mk.message_template.tree.view</field>
+        <field name="model">mk.message_template</field>
+        <field name="arch" type="xml">
+            <tree string="Mẫu tin">
+                <field name="name"/>
+                <field name="description"/>
+
+                <field name="message_template_type_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mk_message_template_form_view" model="ir.ui.view">
+        <field name="name">mk.message_template.form</field>
+        <field name="model">mk.message_template</field>
+        <field name="arch" type="xml">
+            <form string="Tạo mẫu tin">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="message_template_type_id" readonly="(id)"/>
+                            <field name="content" invisible="(is_broadcast)"/>
+                            <field name="image_url" placeholder="Enter image URL" invisible="(is_broadcast)"/>
+                            <field name="from_age" invisible="(not is_broadcast)"/>
+                            <field name="to_age" invisible="(not is_broadcast)"/>
+                            <field name="gender" invisible="(not is_broadcast)"/>
+                            <field name="attachment_id" invisible="(not is_broadcast)"/>
+                            <field name="is_broadcast" invisible="1"/>
+                        </group>
+
+                        <group>
+                            <field name="content_html"
+                                   invisible="(is_broadcast)"
+                                   readonly="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="mk_message_template_action" model="ir.actions.act_window">
+        <field name="name">Mẫu tin</field>
+        <field name="res_model">mk.message_template</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_mk_message_template" name="Mẫu tin"
+              parent="menu_mk_config"
+              action="mk_message_template_action"/>
+
+</odoo>

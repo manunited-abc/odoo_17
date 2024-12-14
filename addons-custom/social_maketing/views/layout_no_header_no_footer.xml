@@ -1,0 +1,13 @@
+<odoo>
+    <template id="no_header_no_footer_layout" inherit_id="website.layout">
+        <!-- Loại bỏ header -->
+        <xpath expr="//header" position="replace">
+            <!-- Không có nội dung -->
+        </xpath>
+
+        <!-- Loại bỏ footer -->
+        <xpath expr="//footer" position="replace">
+            <!-- Không có nội dung -->
+        </xpath>
+    </template>
+</odoo>

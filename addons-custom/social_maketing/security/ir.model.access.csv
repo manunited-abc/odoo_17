@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_mk_campaign,mk.campaign,model_mk_campaign,base.group_user,1,1,1,1
+access_mk_app_config,mk.app_config,model_mk_app_config,base.group_user,1,1,1,1
+access_send_message_social,send.message.social,model_send_message_social,base.group_user,1,1,1,1
+access_mk_message_template,mk.message_template,model_mk_message_template,base.group_user,1,1,1,1
+access_mk_message_template_type,mk.message_template_type,model_mk_message_template_type,base.group_user,1,1,1,1

@@ -1,0 +1,37 @@
+<odoo>
+    <record id="mk_message_template_type_tree_view" model="ir.ui.view">
+        <field name="name">mk.message_template_type.tree.view</field>
+        <field name="model">mk.message_template_type</field>
+        <field name="arch" type="xml">
+            <tree string="Loại mẫu tin">
+                <field name="name"/>
+                <field name="code"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mk_message_template_type_form_view" model="ir.ui.view">
+        <field name="name">mk.message_template_type.form</field>
+        <field name="model">mk.message_template_type</field>
+        <field name="arch" type="xml">
+            <form string="Tạo loại mẫu tin">
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="code"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="mk_message_template_type_action" model="ir.actions.act_window">
+        <field name="name">Loại Mẫu tin</field>
+        <field name="res_model">mk.message_template_type</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_mk_message_template_type" name="Loại mẫu tin"
+              parent="menu_mk_config"
+              action="mk_message_template_type_action"/>
+
+</odoo>

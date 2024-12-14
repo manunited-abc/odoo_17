@@ -1,0 +1,52 @@
+<odoo>
+    <record id="mk_app_config_tree_view" model="ir.ui.view">
+        <field name="name">mk.app_config.tree.view</field>
+        <field name="model">mk.app_config</field>
+        <field name="arch" type="xml">
+            <tree string="App Config">
+                <field name="name"/>
+                <field name="app_id"/>
+                <field name="platform"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mk_app_config_form_view" model="ir.ui.view">
+        <field name="name">mk.app_config.form</field>
+        <field name="model">mk.app_config</field>
+        <field name="arch" type="xml">
+            <form>
+                 <header>
+                    <button  string="Refresh token" type="object" name="action_refresh_token" class="btn-primary"/>
+                      <button  string="Đồng bộ khách hàng từ zalo" type="object" name="sync_customer_zalo" class="btn-primary"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="name"/>
+                        <field name="app_id"/>
+                        <field name="app_secret"/>
+                        <field name="access_token"/>
+                        <field name="refresh_token"/>
+                        <field name="platform"/> <!-- Thêm trường type vào form -->
+                    </group>
+                </sheet>
+
+            </form>
+        </field>
+    </record>
+
+
+    <record id="mk_app_config_action" model="ir.actions.act_window">
+        <field name="name">Cấu hình</field>
+        <field name="res_model">mk.app_config</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem id="menu_mk_app_config"
+              name="Cấu hình ứng dụng"
+              parent="menu_mk_config"
+              action="mk_app_config_action"
+    />
+
+
+</odoo>

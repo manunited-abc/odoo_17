@@ -1,0 +1,50 @@
+<odoo>
+    <record id="mk_campaign_tree_view" model="ir.ui.view">
+        <field name="name">mk.campaign.tree.view</field>
+        <field name="model">mk.campaign</field>
+        <field name="arch" type="xml">
+            <tree string="Campaigns">
+                <field name="name"/>
+                <field name="start_date"/>
+                <field name="is_active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="mk_campaign_form_view" model="ir.ui.view">
+        <field name="name">mk.campaign.form</field>
+        <field name="model">mk.campaign</field>
+        <field name="arch" type="xml">
+            <form string="Campaign">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="start_date"/>
+                            <field name="description"/>
+                            <field name="platform"/>
+                            <field name="is_active"/>
+                        </group>
+                        <group>
+                            <field name="message_template_id"/>
+                            <field name="content_html" invisible="(is_broadcast)"/>
+                            <field name="is_broadcast" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="mk_campaign_action" model="ir.actions.act_window">
+        <field name="name">Marketing Campaign</field>
+        <field name="res_model">mk.campaign</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem id="menu_mk_campaign"
+              name="Chiến dịch"
+              parent="menu_mk_customer"
+              action="mk_campaign_action"
+    />
+
+
+</odoo>

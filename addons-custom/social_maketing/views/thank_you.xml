@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="thank_you" name="Thank You">
+        <!-- Gọi layout không có header và footer -->
+        <t t-call="social_maketing.no_header_no_footer_layout">
+            <div class="container mt-5 text-center">
+                <h2>Cảm ơn bạn đã đăng ký!</h2>
+                <p>Chúng tôi sẽ liên hệ với bạn sớm.</p>
+            </div>
+        </t>
+    </template>
+</odoo>
